@@ -17,7 +17,7 @@ spot.fillcolor(spot_color)
 font_setup = ("Arial", 20, "normal")
 #-----game functions--------
 score_writer.penup()
-score_writer.goto(-200, 200)
+score_writer.goto(-400, 300)
 score_writer.hideturtle()
 def change_position():
     new_xpos = rand.randint(1, 400)
