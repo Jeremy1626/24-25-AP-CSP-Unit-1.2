@@ -55,11 +55,13 @@ def countdown():
     counter.clear()
     if timer <= 0:
         counter.write("Time's Up", font=font_setup)
+        manage_leaderboard()
         timer_up = True
     else:
         counter.write("Timer: " + str(timer), font=font_setup)
         timer -= 1
         counter.getscreen().ontimer(countdown, counter_interval)
+
 
     # update and display the score
 
