@@ -55,8 +55,8 @@ def countdown():
     counter.clear()
     if timer <= 0:
         counter.write("Time's Up", font=font_setup)
-        manage_leaderboard()
         timer_up = True
+        manage_leaderboard()
     else:
         counter.write("Timer: " + str(timer), font=font_setup)
         timer -= 1
