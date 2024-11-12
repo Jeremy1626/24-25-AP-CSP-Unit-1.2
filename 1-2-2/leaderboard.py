@@ -9,6 +9,7 @@ bronze_score = 15
 silver_score = 20
 gold_score = 25
 
+
 # return names in the leaderboard file
 def get_names(file_name):
     leaderboard_file = open(file_name, "r")  # be sure you have created this
