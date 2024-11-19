@@ -29,9 +29,10 @@ wn.tracer(False)
 
 # given a turtle, active_apple, set that turtle to be shaped
 # by the image file
-def draw_apple(active_apple):
+def draw_apple(active_apple, letters):
   active_apple.shape(apple_image)
-  draw_letter("A", active_apple)
+  draw_letter(letters, active_apple)
+  apple.showturtle()
   wn.update()
 
 # This function moves the apple to the ground and hides it.
@@ -41,7 +42,7 @@ def drop_apple():
   apple.clear()
   apple.hideturtle()
   wn.tracer(False)
-
+  reset_apple(apple)
 
 # letter is of type str
 # active_apple is a turtle
@@ -56,11 +57,13 @@ def draw_letter(letter, active_apple):
 #TODO Create a function that takes a turtle as its parameter and gives that turtle (apple)
 # a new location on the tree, only if the list of letters is not empty. Associate the
 # turtle with a new letter selected at random from the list of letters
-def tree(apple):
+def reset_apple(apple):
   if len(letters) > 0:
     newx = rand.randint(-200, 200)
-    newy = apple.ycor()
-    new_letter = rand.choice(letters)
+    newy = 0
+    new_letter = rand.randint(0, len(letters))
+    apple.goto(newx, newy)
+    draw_apple(apple, letters.pop(new_letter))
 
 #TODO Create a function that takes a turtle (apple) and its corresponding letter from the letter
 # list and draws that letter on that turtle (apple)
@@ -74,7 +77,7 @@ def tree(apple):
 # add the new apples to a list of apples to be used in the rest of the program.
 # The loop below executes the correct number of times by using the range() function
 # to create a list of numbers to iterate over.
-for i in range(0, number_of_apples):
+#for i in range(0, number_of_apples):
   #Your code here
 
 #TODO Create a function that takes a letter as its parameter, uses that letter to retrieve the
@@ -90,8 +93,8 @@ for i in range(0, number_of_apples):
 # onkeypress requires that you name one function that must take
 # no arguments to be called when the specified key is pressed.
 
-draw_apple(apple)
-wn.onkeypress(drop_apple, "a")
+draw_apple(apple, letters.pop())
+wn.onkeypress(drop_apple )
 
 wn.listen()
 trtl.mainloop()
