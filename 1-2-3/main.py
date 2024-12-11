@@ -30,6 +30,7 @@ wn.tracer(False)
 
 # given a turtle, active_apple, set that turtle to be shaped
 # by the image file
+
 def draw_apple(active_apple, letter):
   active_apple.shape(apple_image)
   active_apple.showturtle()
