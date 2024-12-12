@@ -21,7 +21,6 @@ wn.tracer(False)
 
 basket = trtl.Turtle()
 basket.penup()
-wn.tracer(False)
 
 def draw_apple(active_apple):
     active_apple.shape(apple_image)
@@ -38,17 +37,25 @@ def drop_apple():
     apple.goto(xcor, ground_height)
     apple.clear()
     apple.hideturtle()
-    wn.tracer(False)
-    reset_apple(apple)
 
-def reset_apple(apple):
-    if apple < ground_height:
-        newx = rand.randint(-200, 200)
-        newy = 0
-        apple.goto(newx, newy)
+
+def basket_left():
+    basket.goto(-200,basket_height )
+
+def basket_right():
+    basket.goto(200,basket_height)
+
+def basket_move_left():
+    if ("a" in direction_list):
+        basket_left()
+def basket_move_right():
+    if ("d" in direction_list):
+        basket_right()
 
 
 draw_apple(apple)
 draw_basket(basket)
 drop_apple()
+
+wn.listen()
 wn.mainloop()
