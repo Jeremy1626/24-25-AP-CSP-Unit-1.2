@@ -44,7 +44,7 @@ def reset_apple (apple):
         newx = rand.randint(-200, 200)
         newy = 0
         apple.goto(newx, newy)
-        
+
 
 #imput basket moving left and right
 def basket_left():
