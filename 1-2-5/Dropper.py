@@ -39,6 +39,14 @@ def drop_apple():
     apple.hideturtle()
 
 
+def reset_apple (apple):
+    if apple < ground_height:
+        newx = rand.randint(-200, 200)
+        newy = 0
+        apple.goto(newx, newy)
+        
+
+#imput basket moving left and right
 def basket_left():
     basket.goto(-200,basket_height )
 
@@ -55,7 +63,7 @@ def basket_move_right():
 
 draw_apple(apple)
 draw_basket(basket)
+draw_apple(apple)
 drop_apple()
-
 wn.listen()
 wn.mainloop()
