@@ -37,13 +37,15 @@ def drop_apple():
     apple.goto(xcor, ground_height)
     apple.clear()
     apple.hideturtle()
+    reset_apple(apple)
 
 
-def reset_apple (apple):
-    if apple < ground_height:
-        newx = rand.randint(-200, 200)
-        newy = 0
-        apple.goto(newx, newy)
+def reset_apple(apple):
+    apple.showturtle()
+    newx = rand.randint(-200, 200)
+    newy = 0
+    apple.goto(newx, newy)
+
 
 
 #imput basket moving left and right
